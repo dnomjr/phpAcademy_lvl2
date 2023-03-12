@@ -1,0 +1,38 @@
+Dorob do logovacu moznost custom sprav
+
+1. pridaj form s inputom meno studenta, ktory sa bude submitovat cez POST - OK
+
+2. dorob aby sa pri prichode logovalo aj meno studenta - OK
+
+3. sprav aby to akceptovalo meno aj cez url adresu ze ?meno=jozko - OK
+
+4. sprav studenti.json, kde sa budu ukladat studenti ktori prisli - OK
+
+5. ak subor existuje tak loadni stary studenti.json, a pridaj novy zaznam - OK
+
+6. incrementuj pri prichode studenta cislo v jsone, ktore bude reprezentovat celkovy pocet prichodov
+
+7. vypis obsah mapy studentov po decodovani pomocou print_r
+
+8. sprav prichody.json, ktory bude len pole vsetkych prichodov, a rovnako ho appenduj decodovanim a encodovanim jsonu
+
+9. preiteruj pole z prichody.json, a k meskajucim datumom napis ze ""meskanie""
+
+10. funkcie, ktore suvisia s logovanim studenti.json, prerob do classy na staticke funkcie
+
+11. funkcie, ktore suvisia s logovanim prichody.json, prerob do classy a funkcie pouzivaj tak ze najprv vytvoris instanciu classy (objekt)
+
+12. v classe ktoru pouzivas ako instanciu, vytvor private metodu ktoru pouzijes ako nejaku pomocnu feature pri logovani (napriklad ziskavanie ci nastalo meskanie)
+
+
+- $_GET, $_POST
+- variables in string templates ""volam sa $meno""
+- array, mapa (associative array)
+- json_encode, json_decode
+- print_r
+- for, foreach
+- include
+- array_each, array_map, array_filter
+- classy (premenne, funkcie)
+- new class instance
+- static, public/private
