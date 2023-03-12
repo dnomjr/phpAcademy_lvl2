@@ -38,26 +38,25 @@
     
     echo nl2br(read_data( $file )); // get data from log.txt to index.php
 
-    $json = 'studenti.json';
-    mkjson($json); // create new json file for student names
 
+    $json = 'studenti.json'; // create new json file for student names
+    $array = [];
+    
+    // if file exist, load old file and add new record
+    if (is_file($json)) {
 
-    $array = [
-        $their_name
-    ];
+        $array = json_decode(file_get_contents($json)); 
 
-    /*if file is exist, load old file and add new record*/
-    if (is_file( $json ))
-    {
-        writejson( $json, $array );
+        if($array == null) {
+            $array = array();
+        }
+
+        array_push($array,  $_GET['name']);
     }
-    else
-    {
-        mkjson('studenti.json');
-        writejson( $json, $array );
-    }
-
-    print_r(readJson($json));
+    
+    file_put_contents($json, json_encode($array)); // save array to json file
+  
+    print_r($array);
 ?>
 
 

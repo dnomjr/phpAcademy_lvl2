@@ -71,24 +71,4 @@ function read_data($filename)
     return file_get_contents( $filename );
 }
 
-
-function mkjson( $json )
-{
-    if ( ! is_file( $json ))
-    {
-        fclose(fopen( $json, 'x'));
-        return true;
-    }
-        return false;
-}
-
-function writejson( $jsonFile, $student )
-{
-    return file_put_contents($jsonFile, json_encode($student)  . PHP_EOL, FILE_APPEND);
-}
-
-function readJson($filename)
-{
-    return file_get_contents( $filename );
-}
 ?>
