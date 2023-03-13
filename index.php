@@ -37,22 +37,28 @@
     }
     
     echo nl2br(read_data( $file )); // get data from log.txt to index.php
-
+   
 
     $json = 'studenti.json'; // create new json file for student names
-    $array = [];
+       
+    if(is_file($json)) //if json file exist
+        {
+        $array = json_decode(file_get_contents($json)); //save to $array json file content and load old file
     
-    // if file exist, load old file and add new record
-    if (is_file($json)) {
+        if(empty($array))
+        {
+            $array = []; 
+        }
 
-        $array = json_decode(file_get_contents($json)); 
-        
-        array_push($array,  $_GET['name']);
-    }
-    
-    file_put_contents($json, json_encode($array)); // save array to json file
-  
+        if(isset($_GET['name']))
+        {
+        array_push($array, $_GET['name']);
+        }
+        }
+
+    file_put_contents($json, json_encode($array));
     print_r($array);
+
 ?>
 
 
