@@ -46,11 +46,7 @@
     if (is_file($json)) {
 
         $array = json_decode(file_get_contents($json)); 
-
-        if($array == null) {
-            $array = array();
-        }
-
+        
         array_push($array,  $_GET['name']);
     }
     
