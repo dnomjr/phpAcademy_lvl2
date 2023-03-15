@@ -84,8 +84,10 @@
     print_r($students); //write content of json file after decode
 
     echo "<hr>";
+
     echo "Celkový počet príchodov študentov je " . $students['arrivals'].".";
 
+    echo "<hr>";
 
 
 /**
@@ -106,12 +108,28 @@
         $arrivals = [];
     }
     
+    /**
+     * preiteruj pole z prichody.json, a k meskajucim datumom napis ze ""meskanie""
+     */
     if(isset($_GET['submit']))
     {
-        array_push($arrivals, $date); 
+        if ($delay == $date)
+        {
+        $date = actual_date() . " meskanie";
+        }
+
+        else
+        {
+            foreach($arrivals as $late_arrivals) 
+            {
+                if($delay == $late_arrivals)
+                {
+                    $date = actual_date() . " meskanie"; 
+                }
+            }    
+        }
+        array_push($arrivals, $date);
     }
-   
-    echo "<hr>";
 
     file_put_contents($json_arrivals, json_encode($arrivals));
     print_r($arrivals);
