@@ -11,6 +11,7 @@
 
 
 <?php 
+    date_default_timezone_set('Europe/Bratislava');
     $date = actual_date(); //actual date & time
     
     echo "Actual date and time is ".$date; 
@@ -58,62 +59,62 @@
 * vypis obsah mapy studentov po decodovani pomocou print_r - OK
  */
 
-    $json = 'studenti.json'; // create new json file for student names
-    if(is_file($json)) //if json file exist
-        {
-        $array = json_decode(file_get_contents($json), true); //save to $array json file content and load old file
+    $json_students = 'studenti.json'; // create new json file for student names
+    if(is_file($json_students)) //if json file exist
+    {
+        $students = json_decode(read_data($json_students), true); //save to $students json file content and load old file
     
-        if(empty($array))   //if array is empty, then create new array w/ arrivals
-            {
-            $array = [
+        if(empty($students))   //if array is empty, then create new array w/ arrivals
+        {
+            $students = [
                 'arrivals' => 0
             ] ;
-            }
+        }
 
         if(isset($_GET['name']))
-            {
-        array_push($array, $_GET['name']); //push student names to array
-        $array['arrivals']++; // increment number of arrivals when student come
-            }
+        {
+        array_push($students, $_GET['name']); //push student names to array
+        $students['arrivals']++; // increment number of arrivals when student come
         }
+    }
     
-    file_put_contents($json, json_encode($array), true); //save students and number of arrivals to json file
+    file_put_contents($json_students, json_encode($students), true); //save students and number of arrivals to json file
     echo "<hr>";
 
-    print_r($array); //write content of json file after decode
+    print_r($students); //write content of json file after decode
 
     echo "<hr>";
-    echo "Celkový počet príchodov študentov je " . $array['arrivals'].".";
+    echo "Celkový počet príchodov študentov je " . $students['arrivals'].".";
 
 
 
 /**
  * sprav prichody.json, ktory bude len pole vsetkych prichodov, a rovnako ho appenduj decodovanim a encodovanim jsonu
  */
-    $arrivals = 'prichody.json';
-    if(is_file($arrivals))
+    $json_arrivals = 'prichody.json';
+    if(is_file($json_arrivals))
     {
-        $array2 = json_decode(file_get_contents($arrivals));
+        $arrivals = json_decode(read_data($json_arrivals));
     }
     else
     {
-        $array2 = [];
+        $arrivals = [];
     }
     
-    if(empty($array2)) 
+    if(empty($arrivals)) 
     {
-        $array2 = [];
+        $arrivals = [];
     }
     
     if(isset($_GET['submit']))
     {
-        array_push($array2, $date); 
+        array_push($arrivals, $date); 
     }
    
     echo "<hr>";
 
-    file_put_contents($arrivals, json_encode($array2));
-    print_r($array2);
+    file_put_contents($json_arrivals, json_encode($arrivals));
+    print_r($arrivals);
 ?>
 
 
