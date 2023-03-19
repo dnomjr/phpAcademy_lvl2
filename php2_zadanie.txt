@@ -10,19 +10,19 @@ Dorob do logovacu moznost custom sprav
 
 5. ak subor existuje tak loadni stary studenti.json, a pridaj novy zaznam - OK
 
-6. incrementuj pri prichode studenta cislo v jsone, ktore bude reprezentovat celkovy pocet prichodov
+6. incrementuj pri prichode studenta cislo v jsone, ktore bude reprezentovat celkovy pocet prichodov - OK
 
-7. vypis obsah mapy studentov po decodovani pomocou print_r
+7. vypis obsah mapy studentov po decodovani pomocou print_r - OK
 
-8. sprav prichody.json, ktory bude len pole vsetkych prichodov, a rovnako ho appenduj decodovanim a encodovanim jsonu
+8. sprav prichody.json, ktory bude len pole vsetkych prichodov, a rovnako ho appenduj decodovanim a encodovanim jsonu - OK
 
-9. preiteruj pole z prichody.json, a k meskajucim datumom napis ze ""meskanie""
+9. preiteruj pole z prichody.json, a k meskajucim datumom napis ze ""meskanie"" - OK
 
-10. funkcie, ktore suvisia s logovanim studenti.json, prerob do classy na staticke funkcie
+10. funkcie, ktore suvisia s logovanim studenti.json, prerob do classy na staticke funkcie - OK
 
-11. funkcie, ktore suvisia s logovanim prichody.json, prerob do classy a funkcie pouzivaj tak ze najprv vytvoris instanciu classy (objekt)
+11. funkcie, ktore suvisia s logovanim prichody.json, prerob do classy a funkcie pouzivaj tak ze najprv vytvoris instanciu classy (objekt) - OK
 
-12. v classe ktoru pouzivas ako instanciu, vytvor private metodu ktoru pouzijes ako nejaku pomocnu feature pri logovani (napriklad ziskavanie ci nastalo meskanie)
+12. v classe ktoru pouzivas ako instanciu, vytvor private metodu ktoru pouzijes ako nejaku pomocnu feature pri logovani (napriklad ziskavanie ci nastalo meskanie) - OK
 
 
 - $_GET, $_POST
